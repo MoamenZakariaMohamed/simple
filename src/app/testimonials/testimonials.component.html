@@ -1,0 +1,11 @@
+<div class="testimonial-container">
+    <div class="testimonial-slide" *ngFor="let testimonial of testimonials; let i = index" [ngStyle]="{'left': (i * 100) + '%'}">
+      <h3>{{ testimonial.title }}</h3>
+      <p *ngIf="i === currentSlide">{{ getCurrentContent() }}</p>
+    </div>
+  </div>
+  
+  <div class="indicators">
+    <div class="indicator" *ngFor="let testimonial of testimonials; let i = index" [class.active]="i === currentSlide" (click)="goToSlide(i)"></div>
+  </div>
+  
